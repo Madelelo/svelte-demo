@@ -20,4 +20,10 @@
   div {
     text-align: right;
   }
+  button {
+    background-color: rgb(76, 49, 102);
+    color: white;
+    font-weight: bolder;
+    border-radius: 4px;
+  }
 </style>

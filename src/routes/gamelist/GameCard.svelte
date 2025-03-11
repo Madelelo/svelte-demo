@@ -4,7 +4,7 @@
 </script>
 
 <div class="games-card">
-  <div>
+  <div class="games-card-info">
     <h2>{gamename}</h2>
     <p>{gameyear}</p>
     <p>{gametype}</p>
@@ -14,9 +14,15 @@
 
 <style>
   .games-card {
-    border: 1px blue solid;
+    background-color: rgba(167, 167, 255, 0.512);
+    border-radius: 5px;
     padding: 10px;
     margin: 2px;
     width: 30vw;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .games-card-info {
+    display: flex;
+    flex-direction: column;
   }
 </style>
