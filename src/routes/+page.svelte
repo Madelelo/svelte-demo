@@ -1,38 +1,16 @@
-<script>
-import Navbar from "./Navbar.svelte";
-import QueueCard from "./QueueCard.svelte";
+<h1>Velkommen til Maddes spillbibliotek</h1>
 
-let name = "Madeleine";
-let color = "blue";
+<a class="nav-button" href="/gamelist"> Se alle mine spill </a>
+<a class="nav-button" href="/gamelibrary"> Lån et spill </a>
 
-let queue = ["Madeleine", "Magnus", "Fredrik"]
-
-let count = 0;
-
-function countClicks(){
-        count += 1;
-}
-
-</script> 
-<!-- HTML--> 
-
-<Navbar/>
-
-<h1 style="color:{color}"> Hello {name} </h1>
-
-<button on:click={countClicks}> Click me</button>
-<p> Button clicked {count} times! </p>
-
-{#if count > 10}
-    <p id="nice"> Nice Work {name}</p>
-{/if}
-
-{#each queue as name}
-        <QueueCard  name={name}/>
-{/each}
-
-<style> 
-#nice{
-        color: green;
-}
+<style>
+  :global(.nav-button) {
+    padding: 10px;
+    background-color: rgb(167, 167, 255);
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    font-size: small;
+    border-radius: 4px;
+  }
 </style>
