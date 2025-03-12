@@ -20,6 +20,9 @@
     margin: 2px;
     width: 30vw;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .games-card-info {
     display: flex;

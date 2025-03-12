@@ -1,5 +1,5 @@
 <script>
-  import LinkButton from "./LinkButton.svelte";
+  import LinkButton from "./Components/LinkButton.svelte";
 </script>
 
 <h1>Velkommen til Maddes spillbibliotek</h1>
