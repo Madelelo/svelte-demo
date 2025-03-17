@@ -1,5 +1,5 @@
 <script>
-  let likesCount = 0;
+  let likesCount = $state(0);
 
   function addLikes() {
     likesCount += 1;
