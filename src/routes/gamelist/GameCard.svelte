@@ -1,5 +1,5 @@
 <script>
-  import GameLikesComponent from "./GameLikesComponent.svelte";
+  import GameLikesComponent from "../Components/GameLikesComponent.svelte";
   let { gamename, gametype, gameyear } = $props();
 </script>
 

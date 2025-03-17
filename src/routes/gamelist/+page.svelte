@@ -5,8 +5,6 @@
   import SearchBar from "./SearchBar.svelte";
 
   let games = $state(gamefile.games);
-
-  //SEARCH bar
   let searchinput = $state("Search...");
 
   function searchedList(searchterm) {
@@ -22,12 +20,7 @@
 
 <h1>Maddes spillbibliotek</h1>
 
-<div>
-  Find a game:
-  <input
-    bind:value={() => searchinput, (v) => ((searchinput = v), searchedList(v))}
-  />
-</div>
+<SearchBar searchTerm={searchinput} onSearch={searchedList} />
 
 <div>
   {#each games as game}

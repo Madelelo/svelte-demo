@@ -1,9 +1,18 @@
 <script>
-  let searchinput = $state("Search...");
+  let { searchinput, onSearch } = $props();
+
+  function handleInput(event) {
+    onSearch(event.target.value);
+  }
 </script>
 
-<input bind:value={searchinput} />
+<div>
+  Find a game:
+  <input bind:value={searchinput} on:input={handleInput} />
+</div>
 
-<h1>{searchinput}!</h1>
-
-<input bind:value={() => searchinput, (v) => (searchinput = v.toLowerCase())} />
+<style>
+  div {
+    margin-bottom: 1rem;
+  }
+</style>

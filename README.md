@@ -16,6 +16,7 @@ I dette kurset skal vi se på følgende konsepter i Svelte
   - [Input og bind](#input-og-bind)
     - [TODO IF-blokker](#todo-if-blokker-1)
   - [Sider og navigasjon (routing)](#sider-og-navigasjon-routing)
+  - [Tips og triks](#tips-og-triks)
   - [Ekstra snacks](#ekstra-snacks)
 
 ## Svelte setup og syntaks
@@ -227,6 +228,10 @@ For eksempel:
   gamelibrary/+page.svelte # /gamelibrary
 
 ```
+
+## Tips og triks
+
+- Du kan navidere inni komponenter i VS-code med COMMAND+trykk
 
 ## Ekstra snacks
 
