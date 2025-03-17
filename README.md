@@ -2,14 +2,21 @@
 
 I dette kurset skal vi se på følgende konsepter i Svelte
 
-- Basic svelte setup
-- Komponenter og syntaks
-- state og props
-- IF-blokker
-- EACH-blokker
-- Bind:
-- Routing
-- Ekstra snacks: AWAIT-blokker, styling, ..
+- [Kom i gang med svelte](#kom-i-gang-med-svelte)
+  - [Svelte setup og syntaks](#svelte-setup-og-syntaks)
+  - [Komponenter og $props()](#komponenter-og-props)
+    - [$props()](#props)
+    - [TODO - Props:](#todo---props)
+  - [Reaktivitet med $state()](#reaktivitet-med-state)
+    - [TODO state](#todo-state)
+  - [IF-blokker](#if-blokker)
+    - [TODO IF-blokker](#todo-if-blokker)
+  - [EACH-blokker](#each-blokker)
+    - [TODO EACH-blokker](#todo-each-blokker)
+  - [Input og bind](#input-og-bind)
+    - [TODO IF-blokker](#todo-if-blokker-1)
+  - [Sider og navigasjon (routing)](#sider-og-navigasjon-routing)
+  - [Ekstra snacks](#ekstra-snacks)
 
 ## Svelte setup og syntaks
 
@@ -29,48 +36,64 @@ npm run dev
 
 Svelte bruker en kombinasjon av HTML, CSS og JavaScript i samme fil. Her er et eksempel:
 
-```svelte
+```html
 <script>
-    let navn = "Madeleine";
+  // JavaScript skrives her
+  let navn = "Madeleine";
 </script>
 
+<!-- HTML skrives her med {JavaScript inni krøllparanteser} -->
 <h1>Hei, {navn}!</h1>
 
 <style>
-    h1 {
-        color: blue;
-    }
+  /* CSS for styling her */
+  h1 {
+    color: blue;
+  }
 </style>
 ```
 
-- `{navn}` brukes for å flette JavaScript-variabler inn i HTML.
-- `<style>`-blokken definerer CSS som kun gjelder for denne komponenten.
-
-Sjekk ut flere syntaks-ting i [documentasjonen](https://svelte.dev/docs/svelte/basic-markup)
+Sjekk ut flere syntaks-ting i [Svelte-docs her.](https://svelte.dev/docs/svelte/basic-markup)
 
 ## Komponenter og $props()
 
-En komponent i Svelte er en gjenbrukbar del av brukergrensesnittet. Hver komponent har sin egen `.svelte`-fil og kan inneholde HTML, CSS og JavaScript.
+En komponent i Svelte er en gjenbrukbar del av grensesnittet. Hver komponent har sin egen `.svelte`-fil, `+page`-filen fungerer som en index-fil. Sånn ser dette prosjektet ut:
 
-TODO: forklaring av fil og komponentstrukturen i game-librar
+```
+svelte-demo
+│   README.md
+│   ...diverse andre filer
+│
+└───src
+   │
+   └───Components
+   │     ...komponenter som brukes overralt
+   │
+   └───gamelibrary
+   │      +page.svelte
+   │      ...andre filer
+   └───gamelist
+         +page.svelte
+         ...andre filer
+```
 
-### Props
+### $props()
 
-Med [Props](https://svelte.dev/docs/svelte/$props) kan du sende variabler til komponentene dine. For eksempel sender dette eksempelet adjektivet `kul` fra hovedsiden `+page.svelte` til `MinKomponent`:
+Med [props](https://svelte.dev/docs/svelte/$props) kan du sende variabler til komponentene dine. For eksempel sender dette eksempelet adjektivet `kul` fra hovedsiden `+page.svelte` til `MinKomponent`:
 
-```svelte
+```html
 <!-- +page.svelte -->
 <script>
-    import MinKomponent from './MinKomponent.svelte';
+  import MinKomponent from "./MinKomponent.svelte";
 </script>
 
 <MinKomponent adjektiv="kul" />
 ```
 
-```svelte
+```html
 <!-- MinKomponent.svelte -->
 <script>
-    export let adjektiv;
+  let { adjektiv } = $props();
 </script>
 
 <p>Denne komponenten er såååå {adjektiv}!</p>
@@ -82,144 +105,132 @@ Med [Props](https://svelte.dev/docs/svelte/$props) kan du sende variabler til ko
 Denne komponenten er såååå kul!
 ```
 
+### TODO - Props:
+
+- [ ] [Kom i gang med props](https://svelte.dev/tutorial/svelte/declaring-props)
+- [ ] [Default verdier](https://svelte.dev/tutorial/svelte/default-values)
+- [ ] [Pakk ut flere verdier](https://svelte.dev/tutorial/svelte/spread-props)
+
+---
+
 ## Reaktivitet med $state()
 
 Svelte håndterer reaktivitet automatisk med [state](https://svelte.dev/docs/svelte/$state). Hvis du vil at en variabel skal oppdatere brukergrensesnittet når den endres, bruker du en vanlig variabel med `$state()`, og Svelte vil oppdatere verdien.
 
-Her vil `count` oppdatere automatisk når knappen trykkes.
+Her vil `klikk` oppdatere automatisk når knappen trykkes.
 
-```svelte
+```html
 <script>
-    let count = 0;
-
-    function increment() {
-        count += 1;
-    }
+	let klikk = $state(0);
 </script>
 
-<button on:click={increment}>Klikk meg</button>
-<p>Antall klikk: {count}</p>
+<button onclick={() => klikk++}>
+	clicks: {klikk}
+</button>
 ```
 
-For eksempel hvis du har en liker-knapp og skal oppdatere antall likes. [Sjekk eksempel fra Gamelibrary her.](https://github.com/Madelelo/svelte-demo/blob/main/src/routes/gamelist/GameLikesComponent.svelte)
+For eksempel hvis du har en liker-knapp og skal oppdatere antall likes. [Sjekk eksempel fra denne appen her.](https://github.com/Madelelo/svelte-demo/blob/main/src/routes/gamelist/GameLikesComponent.svelte)
 
-### IF-blokker
+### TODO state
 
-IF-blokker lar deg vise innhold basert på if/else. For eksempel hvis du kun vil vise tekst så lenge variablene eksisterer:
+- [ ] [Kom i gang med state](https://svelte.dev/tutorial/svelte/state)
+- [ ] [Global state](https://svelte.dev/tutorial/svelte/universal-reactivity)
 
-```svelte
+---
+
+## IF-blokker
+
+IF-blokker lar deg vise innhold basert på en if/else. For eksempel hvis du kun vil vise tekst så lenge variablene eksisterer:
+
+```html
 <script>
-    let visTekst = true;
+  let visTekst = true;
 </script>
 
 {#if visTekst}
-    <p>Hei, verden!</p>
+<p>Hei, verden!</p>
 {/if}
 ```
 
 Hvis `visTekst` er `true`, vises teksten. Du kan også bruke `else`:
 
-```svelte
+```html
 {#if visTekst}
-    <p>Hei, verden!</p>
+<p>Hei, verden!</p>
 {:else}
-    <p>Teksten er skjult.</p>
+<p>Teksten er skjult.</p>
 {/if}
 ```
 
-### EACH-blokker
+### TODO IF-blokker
 
-EACH-blokker brukes for å gjenta innhold basert på en liste og er en slags for-løkke.
+- [ ] [IF-blokker](https://svelte.dev/tutorial/svelte/if-blocks)
 
-```svelte
+---
+
+## EACH-blokker
+
+`{#each}`-blokker er Svelte-versjonen av for-løkker eller maps. Hvis du for eksempel skal vise like cards for alle elementer i en liste kan du bruker en `{#each}`-blokk til å lage
+
+```html
 <script>
-    let frukter = ['Eple', 'Banan', 'Appelsin'];
+  let spill_liste = ["Zelda", "Yatzy", "Kabal"];
 </script>
 
-<ul>
-    {#each frukter as frukt}
-        <li>{frukt}</li>
-    {/each}
-</ul>
+<div>
+  {#each spill_liste as spill}
+  <SpillCardComponent spill="{spill}" />
+  {/each}
+</div>
 ```
 
-## Input og bind:
+### TODO EACH-blokker
 
-Med Bind: kan du koble sammen input-felter og visning av data. Dette betyr at en variabel automatisk oppdateres når brukeren skriver i et input-felt.
+- [ ] [EACH-blokker](https://svelte.dev/tutorial/svelte/each-blocks)
 
-```svelte
+---
+
+## Input og bind
+
+Med bind: kan du koble sammen input-felter og visning av data. Dette betyr at en variabel automatisk oppdateres når brukeren skriver i et input-felt.
+
+```html
 <script>
-    let navn = "";
+  let navn = "";
 </script>
 
-<input bind:value={navn} placeholder="Skriv navnet ditt" />
+<input bind:value="{navn}" placeholder="Skriv navnet ditt" />
 <p>Hei, {navn}!</p>
 ```
 
-Når brukeren skriver i input-feltet, vil `navn`-variabelen oppdateres automagisk.
+Når brukeren skriver i input-feltet, vil `navn`-variabelen oppdateres automagisk. Du finner også eksempler på dette i SearchBar-funskjonaliteten.
+
+### TODO IF-blokker
+
+- [ ] [Text input](https://svelte.dev/tutorial/svelte/text-inputs)
+- [ ] [Tall](https://svelte.dev/tutorial/svelte/numeric-inputs)
+- [ ] [Checkbox](https://svelte.dev/tutorial/svelte/checkbox-inputs)
+- [ ] [Grupper](https://svelte.dev/tutorial/svelte/group-inputs)
+
+---
 
 ## Sider og navigasjon (routing)
 
-SvelteKit har innebygd routing basert på filsystemet.
+Svelte har en innebygd funksjonalitet for routing kalt SvelteKit. I svelte er routing basert på filsystemet. Så lenge du lager en mappe med en +page.sveltefil har du en route på `/mappenavn`
 
 For eksempel:
 
 ```
 /src/routes/
   +page.svelte       # Hovedsiden
-  about/+page.svelte # /about
-```
+  gamelist/+page.svelte # /gamelist
+  gamelibrary/+page.svelte # /gamelibrary
 
-Navigasjon mellom sider:
-
-```svelte
-<a href="/about">Gå til About</a>
-```
-
-Eller med `<Link>`-komponenten fra SvelteKit:
-
-```svelte
-<script>
-    import { goto } from '$app/navigation';
-</script>
-
-<button on:click={() => goto('/about')}>Gå til About</button>
 ```
 
 ## Ekstra snacks
 
-### AWAIT-blokker
-
-Await brukes for asynkrone operasjoner, for eksempel API-kall.
-
-```svelte
-<script>
-    let dataPromise = fetch('https://jsonplaceholder.typicode.com/posts/1')
-        .then(response => response.json());
-</script>
-
-{#await dataPromise}
-    <p>Laster...</p>
-{:then data}
-    <h1>{data.title}</h1>
-    <p>{data.body}</p>
-{/await}
-```
-
-### Styling
-
-Hver `.svelte`-fil har en `<style>`-blokk som kun gjelder for den komponenten.
-
-```svelte
-<style>
-    p {
-        color: red;
-    }
-</style>
-```
-
-Svelte gir også mulighet for globale CSS-regler og CSS-moduler.
-
----
+- Sjekk ut AWAIT-blokker
+- Sjekk ut styling
 
 Dette gir deg en god start på Svelte! 🚀
