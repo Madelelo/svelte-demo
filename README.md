@@ -1,39 +1,22 @@
-# Kom i gang med svelte
+# Kom i gang med svelte <!-- no toc -->
 
-I dette kurset skal vi se på følgende konsepter i Svelte
+I dette kurset skal vi se på frontend rammeverket **Svelte**.
 
-- [Kom i gang med svelte](#kom-i-gang-med-svelte)
+- [Kom i gang med svelte ](#kom-i-gang-med-svelte-)
   - [Svelte setup og syntaks](#svelte-setup-og-syntaks)
   - [Komponenter og $props()](#komponenter-og-props)
-    - [$props()](#props)
-    - [TODO - Props:](#todo---props)
   - [Reaktivitet med $state()](#reaktivitet-med-state)
-    - [TODO state](#todo-state)
   - [IF-blokker](#if-blokker)
-    - [TODO IF-blokker](#todo-if-blokker)
   - [EACH-blokker](#each-blokker)
-    - [TODO EACH-blokker](#todo-each-blokker)
   - [Input og bind](#input-og-bind)
-    - [TODO IF-blokker](#todo-if-blokker-1)
   - [Sider og navigasjon (routing)](#sider-og-navigasjon-routing)
+  - [Kom i gang med Svelte lokalt](#kom-i-gang-med-svelte-lokalt)
   - [Tips og triks](#tips-og-triks)
   - [Ekstra snacks](#ekstra-snacks)
 
+Før vi setter opp et lokalt prosjekt skal vi klikke oss gjennom Svelte sin tutorial for de viktigste grunnkonseptene. Da koder du bare rett i nettleseren! Når du har klikka deg gjennom alle **TODO-ene** kan du lage et eget prosjekt, for eksempel et spillbibliotek som i dette eksempelet.
+
 ## Svelte setup og syntaks
-
-Åpne iTerm og naviger til mappen hvor du lagrer repositoriene dine. Inne i denne mappen, opprett en mappe for Svelte-prosjektet ditt. For eksamepl `svelte-demo`
-
-```bash
-# lager et nytt svelte-prosjekt
-npx sv create
-
-# installerer alle svelte-pakker
-npm install
-
-# kjører svelte-appen din
-npm run dev
-
-```
 
 Svelte bruker en kombinasjon av HTML, CSS og JavaScript i samme fil. Her er et eksempel:
 
@@ -54,7 +37,10 @@ Svelte bruker en kombinasjon av HTML, CSS og JavaScript i samme fil. Her er et e
 </style>
 ```
 
-Sjekk ut flere syntaks-ting i [Svelte-docs her.](https://svelte.dev/docs/svelte/basic-markup)
+**TODO Kom i gang**
+
+- [ ] [Kom i gang](https://svelte.dev/tutorial/svelte/your-first-component)
+- [ ] [Styling](https://svelte.dev/tutorial/svelte/styling)
 
 ## Komponenter og $props()
 
@@ -78,7 +64,7 @@ svelte-demo
          ...andre filer
 ```
 
-### $props()
+**$props()**
 
 Med [props](https://svelte.dev/docs/svelte/$props) kan du sende variabler til komponentene dine. For eksempel sender dette eksempelet adjektivet `kul` fra hovedsiden `+page.svelte` til `MinKomponent`:
 
@@ -106,11 +92,11 @@ Med [props](https://svelte.dev/docs/svelte/$props) kan du sende variabler til ko
 Denne komponenten er såååå kul!
 ```
 
-### TODO - Props:
+**TODO - Komponenter og props:**
 
+- [ ] [Komponenter 2](https://svelte.dev/tutorial/svelte/nested-components)
 - [ ] [Kom i gang med props](https://svelte.dev/tutorial/svelte/declaring-props)
 - [ ] [Default verdier](https://svelte.dev/tutorial/svelte/default-values)
-- [ ] [Pakk ut flere verdier](https://svelte.dev/tutorial/svelte/spread-props)
 
 ---
 
@@ -132,7 +118,7 @@ Her vil `klikk` oppdatere automatisk når knappen trykkes.
 
 For eksempel hvis du har en liker-knapp og skal oppdatere antall likes. [Sjekk eksempel fra denne appen her.](https://github.com/Madelelo/svelte-demo/blob/main/src/routes/gamelist/GameLikesComponent.svelte)
 
-### TODO state
+**TODO $state()**
 
 - [ ] [Kom i gang med state](https://svelte.dev/tutorial/svelte/state)
 - [ ] [Global state](https://svelte.dev/tutorial/svelte/universal-reactivity)
@@ -163,7 +149,7 @@ Hvis `visTekst` er `true`, vises teksten. Du kan også bruke `else`:
 {/if}
 ```
 
-### TODO IF-blokker
+**TODO IF-blokker**
 
 - [ ] [IF-blokker](https://svelte.dev/tutorial/svelte/if-blocks)
 
@@ -185,7 +171,7 @@ Hvis `visTekst` er `true`, vises teksten. Du kan også bruke `else`:
 </div>
 ```
 
-### TODO EACH-blokker
+**TODO EACH-blokker**
 
 - [ ] [EACH-blokker](https://svelte.dev/tutorial/svelte/each-blocks)
 
@@ -206,7 +192,7 @@ Med bind: kan du koble sammen input-felter og visning av data. Dette betyr at en
 
 Når brukeren skriver i input-feltet, vil `navn`-variabelen oppdateres automagisk. Du finner også eksempler på dette i SearchBar-funskjonaliteten.
 
-### TODO IF-blokker
+**TODO input og bind**
 
 - [ ] [Text input](https://svelte.dev/tutorial/svelte/text-inputs)
 - [ ] [Tall](https://svelte.dev/tutorial/svelte/numeric-inputs)
@@ -229,13 +215,36 @@ For eksempel:
 
 ```
 
+**TODO Routing**
+
+- [ ] [Kom i gang med routing](https://svelte.dev/tutorial/kit/pages)
+
+## Kom i gang med Svelte lokalt
+
+Åpne iTerm og naviger til mappen hvor du lagrer repositoriene dine. Inne i denne mappen, opprett en mappe for Svelte-prosjektet ditt. For eksamepl `svelte-demo`
+
+```bash
+# lager et nytt svelte-prosjekt
+npx sv create
+
+# installerer alle svelte-pakker
+npm install
+
+# kjører svelte-appen din
+npm run dev
+
+```
+
+Du er nå klar for å lage din egen Svelte-app - Lykke til!
+
 ## Tips og triks
 
-- Du kan navidere inni komponenter i VS-code med COMMAND+trykk
+- Sjekk ut flere syntaks-ting i [Svelte-docs her.](https://svelte.dev/docs/svelte/basic-markup)
+- Prøv deg på flere ting i [Svelte-turorialen her.](https://svelte.dev/tutorial/svelte/welcome-to-svelte)
+- Du kan navidere inni komponenter i VS-code med `COMMAND+trykk`
+- Vær veldig forsiktig med å bruke OsloskolenKI/ChatGPT, da får du gammel og utdatert Svelte-kode. Det kom helt ny versjon i fjor så OsloskolenKI/ChatGPT gratisversjonen er ikke oppdatert.
 
 ## Ekstra snacks
 
 - Sjekk ut AWAIT-blokker
 - Sjekk ut styling
-
-Dette gir deg en god start på Svelte! 🚀
