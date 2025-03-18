@@ -237,7 +237,7 @@ npm run dev
 Valg du må ta er:
 
 - Which template would you like? `SvelteKit minimal`
-- Add type checking with TypeScript? `Yes, using JavaScript with JSDoc comments`
+- Add type checking with TypeScript? `No`
 - What would you like to add to your project? `prettier`
 - Which package manager do you want to install dependencies with? `npm`
 -
