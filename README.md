@@ -12,7 +12,6 @@ I dette kurset skal vi se på frontend rammeverket **Svelte**.
   - [Sider og navigasjon (routing)](#sider-og-navigasjon-routing)
   - [Kom i gang med Svelte lokalt](#kom-i-gang-med-svelte-lokalt)
   - [Tips og triks](#tips-og-triks)
-  - [Ekstra snacks](#ekstra-snacks)
 
 Før vi setter opp et lokalt prosjekt skal vi klikke oss gjennom Svelte sin tutorial for de viktigste grunnkonseptene. Da koder du bare rett i nettleseren! Når du har klikka deg gjennom alle **TODO-ene** kan du lage et eget prosjekt, for eksempel et spillbibliotek som i dette eksempelet.
 
@@ -217,7 +216,7 @@ For eksempel:
 
 **TODO Routing**
 
-- [ ] [Kom i gang med routing](https://svelte.dev/tutorial/kit/pages)
+- [x] [Kom i gang med routing](https://svelte.dev/tutorial/kit/pages)
 
 ## Kom i gang med Svelte lokalt
 
@@ -243,8 +242,4 @@ Du er nå klar for å lage din egen Svelte-app - Lykke til!
 - Prøv deg på flere ting i [Svelte-turorialen her.](https://svelte.dev/tutorial/svelte/welcome-to-svelte)
 - Du kan navidere inni komponenter i VS-code med `COMMAND+trykk`
 - Vær veldig forsiktig med å bruke OsloskolenKI/ChatGPT, da får du gammel og utdatert Svelte-kode. Det kom helt ny versjon i fjor så OsloskolenKI/ChatGPT gratisversjonen er ikke oppdatert.
-
-## Ekstra snacks
-
-- Sjekk ut AWAIT-blokker
-- Sjekk ut styling
+  - Gammel Svelte bruker `export let props` i stedet for `let props = $props()`

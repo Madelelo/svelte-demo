@@ -18,23 +18,32 @@
   }
 </script>
 
-<h1>Maddes spillbibliotek</h1>
+<div class="container">
+  <h1>Maddes spillbibliotek</h1>
+  <SearchBar searchTerm={searchinput} onSearch={searchedList} />
+  <LinkButton linkHref="" linkLabel="Tilbake" />
 
-<SearchBar searchTerm={searchinput} onSearch={searchedList} />
-
-<div>
-  {#each games as game}
-    <GameCard gamename={game.title} gameyear={game.year} gametype={game.type} />
-  {/each}
+  <div class="game-list">
+    {#each games as game}
+      <GameCard
+        gamename={game.title}
+        gameyear={game.year}
+        gametype={game.type}
+      />
+    {/each}
+  </div>
 </div>
 
-<LinkButton linkHref="" linkLabel="Tilbake" />
-
 <style>
-  div {
+  .container {
+    width: 80%;
+    margin: auto;
+  }
+  .game-list {
     display: flex;
     flex-wrap: wrap;
   }
+
   :global(body) {
     margin: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

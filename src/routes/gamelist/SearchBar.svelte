@@ -13,6 +13,10 @@
 
 <style>
   div {
-    margin-bottom: 1rem;
+    border: 1px solid rgb(82, 82, 201);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 2px;
+    width: 30vw;
   }
 </style>
